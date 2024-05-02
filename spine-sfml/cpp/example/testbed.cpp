@@ -30,8 +30,10 @@
 #include <SFML/Graphics.hpp>
 #include <spine/Log.h>
 #include <spine/spine-sfml.h>
+#include <iostream>
 
 using namespace spine;
+using namespace std;
 
 class NullTextureLoader : public TextureLoader {
 public:
@@ -80,7 +82,8 @@ int main(void) {
 	NullAttachmentLoader nullLoader;
 	Atlas *atlas = atlasFile.length() == 0 ? nullptr : new Atlas(atlasFile, &textureLoader);
 	SkeletonData *skeletonData = nullptr;
-	if (strnstr(skeletonFile.buffer(), ".skel", skeletonFile.length()) != nullptr) {
+	if (strstr(skeletonFile.buffer(), ".skel") != nullptr) {
+		std::cout << "LOADING SKEL!!!" << std::endl; 
 		SkeletonBinary *binary = nullptr;
 		if (atlas) {
 			binary = new SkeletonBinary(atlas);
@@ -91,6 +94,7 @@ int main(void) {
 		skeletonData = binary->readSkeletonDataFile(skeletonFile);
 		delete binary;
 	} else {
+		std::cout << "Parser JSON to SKEL!!!" << std::endl; 
 		SkeletonJson *json = nullptr;
 		if (atlas) {
 			json = new SkeletonJson(atlas);

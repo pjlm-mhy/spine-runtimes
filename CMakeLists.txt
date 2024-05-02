@@ -9,6 +9,7 @@ option(SPINE_SFML "Build spine SFML API" OFF)
 option(SPINE_SANITIZE "Build with sanitization" OFF)
 option(BUILD_TESTING "Build with testing" ON)
 
+
 if(MSVC)
 	message("MSCV detected")
 	set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
