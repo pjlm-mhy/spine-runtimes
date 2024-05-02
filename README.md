@@ -42,3 +42,6 @@ if (strstr(skeletonFile.buffer(), ".skel") != nullptr) {
 ```
 
 We find two ways to parse skeleton. Instead of using binary file, we use json, shown like `String atlasFile("data/sack-pma.atlas");` and `String skeletonFile("data/sack-pro.json");` to instruct combine image into 2D animation.
+
+### Spine-Runtime-Arch
+![Runtime Arch](./runtimes-diagram.png)
